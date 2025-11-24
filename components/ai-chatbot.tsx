@@ -64,7 +64,7 @@ export function AiChatbot() {
     }
   };
   
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!inputValue.trim()) return
 
     // Add user message
@@ -74,12 +74,26 @@ export function AiChatbot() {
     setInputValue("")
     setIsTyping(true)
 
-    // Call API
-    const responseText = await fetchAiResponse(userMessageContent, messages);
-    
-      setMessages((prev) => [...prev, { role: "user", content: randomResponse }])
+    try {
+      // Include the just-sent user message in the conversation history we send to the API
+      const conversationHistory = [...messages, userMessage]
+      const responseText = await fetchAiResponse(userMessageContent, conversationHistory)
+
+      // Append assistant reply
+      setMessages((prev) => [...prev, { role: "assistant", content: responseText }])
+    } catch (error) {
+      console.error("Error fetching AI response:", error)
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content:
+            "I apologize, but I am having trouble connecting to the knowledge base right now. Please check your network or try again later!",
+        },
+      ])
+    } finally {
       setIsTyping(false)
-    })
+    }
   }
 
   return (
