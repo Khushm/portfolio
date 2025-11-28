@@ -127,14 +127,14 @@ const jobs: Job[] = [
     },
   },
   {
-    role: "MLOps Architect",
+    role: "MLOps Architect Intern",
     company: " Integrated Active Monitoring Pvt. Ltd.",
     location: "India",
     headline: "End-to-End Deep Learning Pipeline & Operational Automation",
     date: "Oct 2021 – Feb 2022",
     summary:
       "Developed and deployed a high-performance, real-time Computer Vision solution that automated critical fleet and infrastructure monitoring tasks, shifting the focus from manual observation to alert validation. This project demanded expertise across customized model training, scalable full-stack deployment, and measurable business impact via resource optimization.",
-    achievements: ["SLASHED operational manual monitoring time by over 96% (from 24 hours to 1 hour/day) by automating mission-critical logistics tracking alerts.", "Engineered a proprietary solution that integrated customized detection (PPYolo) and tracking (ByteTracker) models, achieving >98% detection precision across variable environmental conditions.", "Reduced administrative and retail operational errors through parallel systems (Behavioral Analytics and OCR validation), decreasing promotional text errors by 70% and cutting invoice search time from hours to seconds."],
+    achievements: ["Slashed operational manual monitoring time by over 96% (from 24 hours to 1 hour/day) by automating mission-critical logistics tracking alerts.", "Engineered a proprietary solution that integrated customized detection (PPYolo) and tracking (ByteTracker) models, achieving >98% detection precision across variable environmental conditions.", "Reduced administrative and retail operational errors through parallel systems (Behavioral Analytics and OCR validation), decreasing promotional text errors by 70% and cutting invoice search time from hours to seconds."],
     stackTrace: {
       code: "Python, PPYolo, ByteTracker, OpenCV, VGG, FaceNet, PaddleOCR \n Custom model architecture selection, fine-tuning, integration of proprietary tracking logic, and high-performance image processing.",
       infra: "FastAPI, Docker, RabbitMQ, React, Bash, NVIDIA Jetson Nano \n Full-stack orchestration, microservice communication via message queues, containerization for portability, and optimized deployment on edge hardware.",
@@ -144,21 +144,23 @@ const jobs: Job[] = [
 ]
 
 interface ModalContentProps {
-  type: "code" | "cloud" | "db"
+  type: "code" | "cloud" | "db | infra"
   job: Job
 }
 
 function ModalContent({ type, job }: ModalContentProps) {
   const titles = {
     code: "Technical Stack & Implementation",
-    cloud: "Infrastructure & Tools",
-    db: "Impact Metrics & Outcomes",
+    cloud: "Production",
+    db: "Data Management",
+    infra: "Production"
   }
 
   const content = {
     code: job.stackTrace.code,
     cloud: job.stackTrace.cloud,
     db: job.stackTrace.db,
+    infra.job.stackTrace.infra
   }
 
   return (
@@ -172,7 +174,7 @@ function ModalContent({ type, job }: ModalContentProps) {
 }
 
 export default function Experience() {
-  const [activeModal, setActiveModal] = useState<{ type: "code" | "cloud" | "db"; jobIndex: number } | null>(null)
+  const [activeModal, setActiveModal] = useState<{ type: "code" | "cloud" | "db" | "infra"; jobIndex: number } | null>(null)
 
   return (
     <section id="experience" className="py-12 px-4 md:px-8 max-w-7xl mx-auto">
@@ -262,7 +264,7 @@ export default function Experience() {
                           onClick={() => setActiveModal({ type: "cloud", jobIndex: index })}
                         >
                           <Cloud className="w-6 h-6 text-gray-400 group-hover/icon:text-[#66fcf1] transition-colors hover:scale-110" />
-                          <span className="text-[10px] text-gray-500 font-mono">CLOUD</span>
+                          <span className="text-[10px] text-gray-500 font-mono">Infra</span>
                         </div>
                         <div
                           className="flex flex-col items-center gap-1 group/icon cursor-pointer"
