@@ -137,14 +137,14 @@ const jobs: Job[] = [
     achievements: ["Slashed operational manual monitoring time by over 96% (from 24 hours to 1 hour/day) by automating mission-critical logistics tracking alerts.", "Engineered a proprietary solution that integrated customized detection (PPYolo) and tracking (ByteTracker) models, achieving >98% detection precision across variable environmental conditions.", "Reduced administrative and retail operational errors through parallel systems (Behavioral Analytics and OCR validation), decreasing promotional text errors by 70% and cutting invoice search time from hours to seconds."],
     stackTrace: {
       code: "Python, PPYolo, ByteTracker, OpenCV, VGG, FaceNet, PaddleOCR | Custom model architecture selection, fine-tuning, integration of proprietary tracking logic, and high-performance image processing.",
-      infra: "FastAPI, Docker, RabbitMQ, React, Bash, NVIDIA Jetson Nano | Full-stack orchestration, microservice communication via message queues, containerization for portability, and optimized deployment on edge hardware.",
+      cloud: "FastAPI, Docker, RabbitMQ, React, Bash, NVIDIA Jetson Nano | Full-stack orchestration, microservice communication via message queues, containerization for portability, and optimized deployment on edge hardware.",
       db: "MongoDB, Elasticsearch, Postman, OCR/Invoice Data | Designed the document retrieval schema, implemented efficient real-time data ingestion, and utilized specialized indexing for near-instantaneous search (hours $\rightarrow$ seconds).",
     },
   },
 ]
 
 interface ModalContentProps {
-  type: "code" | "cloud" | "db | infra"
+  type: "code" | "cloud" | "db"
   job: Job
 }
 
@@ -152,15 +152,13 @@ function ModalContent({ type, job }: ModalContentProps) {
   const titles = {
     code: "Technical Stack & Implementation",
     cloud: "Production",
-    db: "Data Management",
-    infra: "Production"
+    db: "Data Management"
   }
 
   const content = {
     code: job.stackTrace.code,
     cloud: job.stackTrace.cloud,
-    db: job.stackTrace.db,
-    infra.job.stackTrace.infra
+    db: job.stackTrace.db
   }
 
   return (
@@ -174,7 +172,7 @@ function ModalContent({ type, job }: ModalContentProps) {
 }
 
 export default function Experience() {
-  const [activeModal, setActiveModal] = useState<{ type: "code" | "cloud" | "db" | "infra"; jobIndex: number } | null>(null)
+  const [activeModal, setActiveModal] = useState<{ type: "code" | "cloud" | "db"; jobIndex: number } | null>(null)
 
   return (
     <section id="experience" className="py-12 px-4 md:px-8 max-w-7xl mx-auto">
