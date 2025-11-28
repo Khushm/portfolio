@@ -136,9 +136,9 @@ const jobs: Job[] = [
       "Developed and deployed a high-performance, real-time Computer Vision solution that automated critical fleet and infrastructure monitoring tasks, shifting the focus from manual observation to alert validation. This project demanded expertise across customized model training, scalable full-stack deployment, and measurable business impact via resource optimization.",
     achievements: ["Slashed operational manual monitoring time by over 96% (from 24 hours to 1 hour/day) by automating mission-critical logistics tracking alerts.", "Engineered a proprietary solution that integrated customized detection (PPYolo) and tracking (ByteTracker) models, achieving >98% detection precision across variable environmental conditions.", "Reduced administrative and retail operational errors through parallel systems (Behavioral Analytics and OCR validation), decreasing promotional text errors by 70% and cutting invoice search time from hours to seconds."],
     stackTrace: {
-      code: "Python, PPYolo, ByteTracker, OpenCV, VGG, FaceNet, PaddleOCR \n Custom model architecture selection, fine-tuning, integration of proprietary tracking logic, and high-performance image processing.",
-      infra: "FastAPI, Docker, RabbitMQ, React, Bash, NVIDIA Jetson Nano \n Full-stack orchestration, microservice communication via message queues, containerization for portability, and optimized deployment on edge hardware.",
-      db: "MongoDB, Elasticsearch, Postman, OCR/Invoice Data \n Designed the document retrieval schema, implemented efficient real-time data ingestion, and utilized specialized indexing for near-instantaneous search (hours $\rightarrow$ seconds).",
+      code: "Python, PPYolo, ByteTracker, OpenCV, VGG, FaceNet, PaddleOCR | Custom model architecture selection, fine-tuning, integration of proprietary tracking logic, and high-performance image processing.",
+      infra: "FastAPI, Docker, RabbitMQ, React, Bash, NVIDIA Jetson Nano | Full-stack orchestration, microservice communication via message queues, containerization for portability, and optimized deployment on edge hardware.",
+      db: "MongoDB, Elasticsearch, Postman, OCR/Invoice Data | Designed the document retrieval schema, implemented efficient real-time data ingestion, and utilized specialized indexing for near-instantaneous search (hours $\rightarrow$ seconds).",
     },
   },
 ]
